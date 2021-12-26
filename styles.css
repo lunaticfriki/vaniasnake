@@ -58,8 +58,8 @@ span {
 }
 
 #game-board {
-  width: 90vmin;
-  height: 90vmin;
+  width: 80vmin;
+  height: 80vmin;
   background-color: #000;
   display: grid;
   grid-template-rows: repeat(21, 1fr);
