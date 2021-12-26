@@ -1,8 +1,37 @@
 import { getInputDirection } from './input.js'
 
-const SNAKE_SPEED = 5
+let SNAKE_SPEED = 5
 const snakeBody = [{ x: 11, y: 11 }]
 let newSegments = 0
+
+const currentSpeed = document.getElementById('currentSpeed')
+currentSpeed.innerHTML = SNAKE_SPEED
+
+const btnIncrease = document.getElementById('increase')
+const btnDecrease = document.getElementById('decrease')
+
+btnIncrease.addEventListener('click', upSpeed)
+btnDecrease.addEventListener('click', downSpeed)
+
+function upSpeed() {
+  SNAKE_SPEED += 1 && SNAKE_SPEED < 30
+  currentSpeed.innerHTML = SNAKE_SPEED
+  if (SNAKE_SPEED === 30) {
+    btnIncrease.disabled = true
+  } else {
+    btnDecrease.disabled = false
+  }
+}
+
+function downSpeed() {
+  SNAKE_SPEED -= 1 && SNAKE_SPEED > 5
+  currentSpeed.innerHTML = SNAKE_SPEED
+  if (SNAKE_SPEED === 5) {
+    btnDecrease.disabled = true
+  } else {
+    btnIncrease.disabled = false
+  }
+}
 
 function update() {
   addSegments()
